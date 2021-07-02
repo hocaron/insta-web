@@ -10,8 +10,8 @@ npm run start
 ## Todo List
 
 - [x] Router
-- [ ] Authentication
-- [ ] Arch.
+- [x] Authentication
+- [x] Arch.
 - [ ] Styles
 
 ## 📃Insta Web

@@ -1,15 +1,12 @@
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { useReactiveVar } from "@apollo/client";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import NotFound from "./screens/NotFound";
+import { isLoggedInVar } from "./screens/apollo";
 
 function App() {
-  const isLoggedIn = false;
+  const isLoggedIn = useReactiveVar(isLoggedInVar);
   return (
     <div>
       <Router>
