@@ -7,9 +7,14 @@ npm i
 npm run start
 ```
 
+- [ ] Router
+- [ ] Authentication
+- [ ] Arch.
+- [ ] Styles
+
 ## 📃Insta Web
 
-- Styled-Component  
+- Styled-Component
   `npm i styled-components`
 - React Hook Form  
   `npm i react-hook-form`
