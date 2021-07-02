@@ -9,7 +9,7 @@ npm run start
 
 ## Todo List
 
-- [ ] Router
+- [x] Router
 - [ ] Authentication
 - [ ] Arch.
 - [ ] Styles
