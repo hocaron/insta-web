@@ -13,7 +13,7 @@ npm run start
 - [x] Authentication
 - [x] Arch.
 - [x] Styles
-- [ ] Log In
+- [ ] Log In / Sign In
 
 ## 📃Insta Web
 
