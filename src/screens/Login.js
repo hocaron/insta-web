@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
 import routes from "./routes";
 import AuthLayout from "../components/auth/AuthLayout";
-import { BaseBox } from "../components/shared";
 import Button from "../components/auth/Button";
 import Separator from "../components/auth/Separator";
 import Input from "../components/auth/Input";
@@ -17,6 +16,7 @@ const Logo = styled.img`
 
 const FacebookLogin = styled.div`
   color: #385285;
+  margin-top: 30px;
   span {
     margin-left: 10px;
     font-weight: 600;
