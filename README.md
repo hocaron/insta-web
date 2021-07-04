@@ -13,6 +13,7 @@ npm run start
 - [x] Authentication
 - [x] Arch.
 - [ ] Styles
+- [ ] Log In
 
 ## 📃Insta Web
 
@@ -38,3 +39,5 @@ npm install --save @fortawesome/free-regular-svg-icons
 
 - React Helmet(Changing Title)  
   `npm i react-helmet-async`
+- Styled-Reset
+  `npm i styled-reset`
