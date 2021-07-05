@@ -35,7 +35,7 @@ function Login() {
   };
   return (
     <AuthLayout>
-      <PageTitle title="login" />
+      <PageTitle title="Login" />
       <FormBox>
         <div>
           <Logo src="https://fontmeme.com/images/instagram-new-logo.png" />

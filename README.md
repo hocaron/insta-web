@@ -14,6 +14,7 @@ npm run start
 - [x] Arch.
 - [x] Styles
 - [x] Log In / Sign In
+- [x] Apollo Client
 
 ## 📃Insta Web
 

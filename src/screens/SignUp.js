@@ -47,7 +47,7 @@ const FacebookLogin = styled.div`
 function SignUp() {
   return (
     <AuthLayout>
-      <PageTitle title="signup" />
+      <PageTitle title="Sign Up" />
       <FormBox>
         <div>
           <Logo src="https://fontmeme.com/images/instagram-new-logo.png" />
