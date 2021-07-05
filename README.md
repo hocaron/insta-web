@@ -20,7 +20,7 @@ npm run start
 - Styled-Component  
   `npm i styled-components`
 - React Hook Form  
-  `npm i react-hook-form`
+  `npm install react-hook-form@6.15.1`
 - React Router  
   `npm i react-router-dom`
 - Apollo Client 3  

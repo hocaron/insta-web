@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 export const lightTheme = {
-  blue: "#5890dd",
+  blue: "#0195f7",
   borderColor: "rgb(219, 219, 219);",
 };
 
