@@ -17,7 +17,7 @@ npm run start
 
 ## 📃Insta Web
 
-- Styled-Component
+- Styled-Component  
   `npm i styled-components`
 - React Hook Form  
   `npm i react-hook-form`
@@ -39,5 +39,5 @@ npm install --save @fortawesome/free-regular-svg-icons
 
 - React Helmet(Changing Title)  
   `npm i react-helmet-async`
-- Styled-Reset
+- Styled-Reset  
   `npm i styled-reset`

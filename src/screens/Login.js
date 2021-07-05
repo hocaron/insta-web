@@ -8,7 +8,7 @@ import Separator from "../components/auth/Separator";
 import Input from "../components/auth/Input";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
-
+import PageTitle from "../components/PageTitle";
 const Logo = styled.img`
   width: 200px;
   height: 80px;
@@ -26,6 +26,7 @@ const FacebookLogin = styled.div`
 function Login() {
   return (
     <AuthLayout>
+      <PageTitle title="login" />
       <FormBox>
         <div>
           <Logo src="https://fontmeme.com/images/instagram-new-logo.png" />

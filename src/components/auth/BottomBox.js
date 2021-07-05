@@ -7,7 +7,7 @@ const SBottomBox = styled(BaseBox)`
   text-align: center;
   a {
     font-weight: 600;
-    color: #5890dd;
+    color: ${(props) => props.theme.blue};
   }
 `;
 

@@ -3,7 +3,6 @@ import reset from "styled-reset";
 
 export const lightTheme = {
   blue: "#5890dd",
-  skyblue: "#b1dffd",
   borderColor: "rgb(219, 219, 219);",
 };
 

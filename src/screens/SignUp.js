@@ -9,6 +9,7 @@ import Input from "../components/auth/Input";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
 import { FatLink } from "../components/shared";
+import PageTitle from "../components/PageTitle";
 
 const Logo = styled.img`
   width: 200px;
@@ -46,6 +47,7 @@ const FacebookLogin = styled.div`
 function SignUp() {
   return (
     <AuthLayout>
+      <PageTitle title="signup" />
       <FormBox>
         <div>
           <Logo src="https://fontmeme.com/images/instagram-new-logo.png" />
