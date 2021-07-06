@@ -12,6 +12,7 @@ import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
 import FormError from "../components/auth/FormError";
 import { gql, useMutation } from "@apollo/client";
+import { LogUserIn } from "./apollo";
 
 const Logo = styled.img`
   width: 200px;
@@ -38,19 +39,29 @@ const LOGIN_MUTATION = gql`
 `;
 
 function Login() {
-  const { register, handleSubmit, errors, formState, getValues, setError } =
-    useForm({
-      mode: "onChange",
-    });
+  const {
+    register,
+    handleSubmit,
+    errors,
+    formState,
+    getValues,
+    setError,
+    clearErrors,
+  } = useForm({
+    mode: "onChange",
+  });
 
   const onCompleted = (data) => {
     const {
       login: { ok, error, token },
     } = data;
     if (!ok) {
-      setError("result", {
+      return setError("result", {
         message: error,
       });
+    }
+    if (token) {
+      LogUserIn(token);
     }
   };
   const [login, { loading }] = useMutation(LOGIN_MUTATION, { onCompleted });
@@ -62,6 +73,9 @@ function Login() {
     login({
       variables: { username, password },
     });
+  };
+  const clearLoginError = () => {
+    clearErrors("result");
   };
   return (
     <AuthLayout>
@@ -83,6 +97,7 @@ function Login() {
             type="text"
             placeholder="Username"
             hasError={Boolean(errors?.username?.message)}
+            onFocus={clearLoginError}
           />
           <FormError message={errors?.username?.message} />
           <Input
@@ -93,6 +108,7 @@ function Login() {
             type="password"
             placeholder="Password"
             hasError={Boolean(errors?.password?.message)}
+            onFocus={clearLoginError}
           />
           <FormError message={errors?.password?.message} />
           <Button
