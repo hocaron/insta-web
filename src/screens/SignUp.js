@@ -10,6 +10,10 @@ import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
 import { FatLink } from "../components/shared";
 import PageTitle from "../components/PageTitle";
+import { gql, useMutation } from "@apollo/client";
+import { useForm } from "react-hook-form";
+import FormError from "../components/auth/FormError";
+import { useHistory } from "react-router-dom";
 
 const Logo = styled.img`
   width: 200px;
@@ -44,7 +48,66 @@ const FacebookLogin = styled.div`
   }
 `;
 
+const CREATEACCOUNT_MUTATION = gql`
+  mutation createAccount(
+    $firstName: String!
+    $lastName: String
+    $username: String!
+    $email: String!
+    $password: String!
+  ) {
+    createAccount(
+      firstName: $firstName
+      lastName: $lastName
+      username: $username
+      email: $email
+      password: $password
+    ) {
+      ok
+      error
+    }
+  }
+`;
 function SignUp() {
+  const history = useHistory();
+  const {
+    register,
+    handleSubmit,
+    errors,
+    formState,
+    getValues,
+    setError,
+    clearErrors,
+  } = useForm({
+    mode: "onChange",
+  });
+
+  const onCompleted = (data) => {
+    const {
+      createAccount: { ok, error },
+    } = data;
+    if (!ok) {
+      return setError("result", {
+        message: error,
+      });
+    }
+    history.push(routes.home);
+  };
+  const [createAccount, { loading }] = useMutation(CREATEACCOUNT_MUTATION, {
+    onCompleted,
+  });
+  const onSubmitValid = (data) => {
+    if (loading) {
+      return;
+    }
+    const { firstName, lastName, username, email, password } = data;
+    createAccount({
+      variables: { firstName, lastName, username, email, password },
+    });
+  };
+  const clearLoginError = () => {
+    clearErrors("result");
+  };
   return (
     <AuthLayout>
       <PageTitle title="Sign Up" />
@@ -62,12 +125,58 @@ function SignUp() {
           <span>Log in with Facebook</span>
         </FacebookLogin>
         <Separator />
-        <form>
-          <Input type="text" placeholder="Full Name" />
-          <Input type="text" placeholder="Email" />
-          <Input type="text" placeholder="Username" />
-          <Input type="password" placeholder="Password" />
-          <Button type="submit" value="Log in" />
+        <form onSubmit={handleSubmit(onSubmitValid)}>
+          <Input
+            ref={register({ required: "First Name is required" })}
+            name="firstName"
+            type="text"
+            placeholder="First Name"
+            hasError={Boolean(errors?.username?.message)}
+            onFocus={clearLoginError}
+          />
+          <FormError message={errors?.firstName?.message} />
+          <Input
+            ref={register}
+            name="lastName"
+            type="text"
+            placeholder="Last Name"
+            hasError={Boolean(errors?.username?.message)}
+            onFocus={clearLoginError}
+          />
+          <FormError message={errors?.lastName?.message} />
+          <Input
+            ref={register({ required: "Username is required" })}
+            name="username"
+            type="text"
+            placeholder="Username"
+            hasError={Boolean(errors?.username?.message)}
+            onFocus={clearLoginError}
+          />
+          <FormError message={errors?.username?.message} />
+          <Input
+            ref={register({ required: "Email is required" })}
+            name="email"
+            type="text"
+            placeholder="Email"
+            hasError={Boolean(errors?.username?.message)}
+            onFocus={clearLoginError}
+          />
+          <FormError message={errors?.eamil?.message} />
+          <Input
+            ref={register({ required: "Password is required" })}
+            name="password"
+            type="password"
+            placeholder="Password"
+            hasError={Boolean(errors?.username?.message)}
+            onFocus={clearLoginError}
+          />
+          <FormError message={errors?.password?.message} />
+          <Button
+            type="submit"
+            value={loading ? "Loading..." : "Sign Up"}
+            disabled={!formState.isValid || loading}
+          />
+          <FormError message={errors?.result?.message} />
         </form>
       </FormBox>
       <BottomBox cta="Have an account?" link={routes.home} linkText="Log in" />

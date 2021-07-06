@@ -1,4 +1,4 @@
-import { isLoggedInVar, LogUserOut } from "./apollo";
+import { LogUserOut } from "./apollo";
 
 function Home() {
   return (
