@@ -13,6 +13,8 @@ import { useForm } from "react-hook-form";
 import FormError from "../components/auth/FormError";
 import { gql, useMutation } from "@apollo/client";
 import { LogUserIn } from "./apollo";
+import { useLocation } from "react-router-dom";
+import { Notification } from "../components/shared";
 
 const Logo = styled.img`
   width: 200px;
@@ -39,9 +41,14 @@ const LOGIN_MUTATION = gql`
 `;
 
 function Login() {
+  const location = useLocation();
   const { register, handleSubmit, errors, formState, setError, clearErrors } =
     useForm({
       mode: "onChange",
+      defaultValues: {
+        username: location?.state?.username || "",
+        password: location?.state?.password || "",
+      },
     });
 
   const onCompleted = (data) => {
@@ -77,6 +84,7 @@ function Login() {
         <div>
           <Logo src="https://fontmeme.com/images/instagram-new-logo.png" />
         </div>
+        <Notification>{location.state?.message}</Notification>
         <form onSubmit={handleSubmit(onSubmitValid)}>
           <Input
             ref={register({
