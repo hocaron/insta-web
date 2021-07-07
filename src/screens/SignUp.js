@@ -48,7 +48,7 @@ const FacebookLogin = styled.div`
   }
 `;
 
-const CREATEACCOUNT_MUTATION = gql`
+const CREATE_ACCOUNT_MUTATION = gql`
   mutation createAccount(
     $firstName: String!
     $lastName: String
@@ -93,7 +93,7 @@ function SignUp() {
     }
     history.push(routes.home);
   };
-  const [createAccount, { loading }] = useMutation(CREATEACCOUNT_MUTATION, {
+  const [createAccount, { loading }] = useMutation(CREATE_ACCOUNT_MUTATION, {
     onCompleted,
   });
   const onSubmitValid = (data) => {
