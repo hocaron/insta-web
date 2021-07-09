@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
-import routes from "./routes";
 import AuthLayout from "../components/auth/AuthLayout";
 import Button from "../components/auth/Button";
 import Separator from "../components/auth/Separator";
@@ -14,6 +13,7 @@ import { gql, useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import FormError from "../components/auth/FormError";
 import { useHistory } from "react-router-dom";
+import routes from "../routes";
 
 const Logo = styled.img`
   width: 200px;

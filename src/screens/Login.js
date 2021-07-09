@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
-import routes from "./routes";
+import routes from "../routes";
 import AuthLayout from "../components/auth/AuthLayout";
 import Button from "../components/auth/Button";
 import Separator from "../components/auth/Separator";
@@ -12,7 +12,7 @@ import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
 import FormError from "../components/auth/FormError";
 import { gql, useMutation } from "@apollo/client";
-import { LogUserIn } from "./apollo";
+import { LogUserIn } from "../apollo";
 import { useLocation } from "react-router-dom";
 import { Notification } from "../components/shared";
 

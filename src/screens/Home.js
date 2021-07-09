@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { LogUserOut } from "./apollo";
+import { LogUserOut } from "../apollo";
 
 function Home() {
   const history = useHistory();

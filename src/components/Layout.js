@@ -1,11 +1,20 @@
 import styled from "styled-components";
 import Header from "./Header";
 
-const Content = styled.main``;
+const Content = styled.main`
+  max-width: 930px;
+  width: 100%;
+  margin-top: 45px;
+  margin: 0 auto;
+`;
 
 function Layout({ children }) {
-  <>
-    <Header />
-    <div>{children}</div>
-  </>;
+  return (
+    <>
+      <Header />
+      <Content>{children}</Content>
+    </>
+  );
 }
+
+export default Layout;

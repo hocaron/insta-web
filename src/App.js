@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import NotFound from "./screens/NotFound";
-import { client, darkModeVar, isLoggedInVar } from "./screens/apollo";
+import { client, darkModeVar, isLoggedInVar } from "./apollo";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, GlobalStyles, lightTheme } from "./screens/styles";
 import SignUp from "./screens/SignUp";
-import routes from "./screens/routes";
+import routes from "./routes";
 import { HelmetProvider } from "react-helmet-async";
+import Layout from "./components/Layout";
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
