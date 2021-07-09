@@ -21,7 +21,13 @@ function App() {
           <Router>
             <Switch>
               <Route path={routes.home} exact>
-                {isLoggedIn ? <Home /> : <Login />}
+                {isLoggedIn ? (
+                  <Layout>
+                    <Home />
+                  </Layout>
+                ) : (
+                  <Login />
+                )}
               </Route>
               {!isLoggedIn ? (
                 <Route path={routes.signUp}>
