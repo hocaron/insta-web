@@ -23,6 +23,6 @@ function useUser() {
       LogUserOut(history);
     }
   }, [data]);
-  return;
+  return { data };
 }
 export default useUser;
