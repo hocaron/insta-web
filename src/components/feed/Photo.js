@@ -10,6 +10,16 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-regular-svg-icons";
 import Avatar from "../Avatar";
+import { gql, useMutation } from "@apollo/client";
+
+const TOGGLE_LIKE_MUTATION = gql`
+  mutation toggleLike($id: Int!) {
+    toggleLike(id: $id) {
+      ok
+      error
+    }
+  }
+`;
 
 const PhotoContainer = styled.div`
   background-color: white;
@@ -52,6 +62,7 @@ const PhotoActions = styled.div`
 
 const PhotoAction = styled.div`
   margin-right: 10px;
+  cursor: pointer;
 `;
 
 const Likes = styled(FatText)`
@@ -60,6 +71,11 @@ const Likes = styled(FatText)`
 `;
 
 function Photo({ id, user, file, isLiked, likeNumber }) {
+  const [toggleLikeMutation, { loading }] = useMutation(TOGGLE_LIKE_MUTATION, {
+    variables: {
+      id,
+    },
+  });
   return (
     <PhotoContainer key={id}>
       <PhotoHeader>
@@ -70,7 +86,7 @@ function Photo({ id, user, file, isLiked, likeNumber }) {
       <PhotoData>
         <PhotoActions>
           <div>
-            <PhotoAction>
+            <PhotoAction onClick={toggleLikeMutation}>
               <FontAwesomeIcon
                 style={{ color: isLiked ? "tomato" : "inherit" }}
                 icon={isLiked ? SolidHeart : faHeart}
