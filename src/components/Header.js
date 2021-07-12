@@ -11,18 +11,19 @@ import Avatar from "./Avatar";
 import useUser from "./hooks/useUser";
 
 const Logo = styled.img`
-  width: 180px;
-  height: 72px;
+  width: 140px;
+  height: 56px;
 `;
 
 const SHeader = styled.header`
   width: 100%;
   border-bottom: 1px solid ${(props) => props.theme.borderColor};
-  background-color: ${(props) => props.theme.bgColor};
+  background-color: white;
   padding: 18px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 35px;
 `;
 
 const Wrapper = styled.div`

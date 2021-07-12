@@ -14,6 +14,10 @@ export const FatLink = styled.span`
 export const Notification = styled.div`
   color: #2ecc71;
 `;
+
+export const FatText = styled.span`
+  font-weight: 600;
+`;
 // function WhiteBox({ children }) {
 //   return <WhiteBox>{children}</WhiteBox>;
 // }
