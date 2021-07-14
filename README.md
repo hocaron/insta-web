@@ -15,6 +15,8 @@ npm run start
 - [x] Styles
 - [x] Log In / Sign In
 - [x] Apollo Client
+- [x] Headers
+- [x] Dark Mode
 
 ## 📃Insta Web
 
