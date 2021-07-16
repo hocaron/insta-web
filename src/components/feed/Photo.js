@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import Avatar from "../Avatar";
 import { gql, useMutation } from "@apollo/client";
+import Comments from "./Comments";
 
 const TOGGLE_LIKE_MUTATION = gql`
   mutation toggleLike($id: Int!) {
@@ -66,11 +67,20 @@ const PhotoAction = styled.div`
 `;
 
 const Likes = styled(FatText)`
-  margin-top: 10px;
+  margin-top: 15px;
   display: block;
 `;
 
-function Photo({ id, user, file, isLiked, likeNumber }) {
+function Photo({
+  id,
+  user,
+  file,
+  isLiked,
+  likeNumber,
+  caption,
+  commentNumber,
+  comments,
+}) {
   const updateToggleLike = (cache, result) => {
     const {
       data: {
@@ -128,6 +138,12 @@ function Photo({ id, user, file, isLiked, likeNumber }) {
           </div>
         </PhotoActions>
         <Likes>{likeNumber === 1 ? "1 like" : `${likeNumber} likes`}</Likes>
+        <Comments
+          author={user.username}
+          caption={caption}
+          commentNumber={commentNumber}
+          comments={comments}
+        />
       </PhotoData>
     </PhotoContainer>
   );
@@ -142,5 +158,7 @@ Photo.propTypes = {
   file: PropTypes.string.isRequired,
   isLiked: PropTypes.bool.isRequired,
   likeNumber: PropTypes.number.isRequired,
+  caption: PropTypes.string,
+  commentNumber: PropTypes.number.isRequired,
 };
 export default Photo;
