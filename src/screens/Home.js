@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import Photo from "../components/feed/Photo";
 
-const FEED_QUERY = gql`
+export const FEED_QUERY = gql`
   query seeFeed {
     seeFeed {
       id
