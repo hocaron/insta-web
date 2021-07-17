@@ -44,3 +44,5 @@ npm install --save @fortawesome/free-regular-svg-icons
   `npm i react-helmet-async`
 - Styled-Reset  
   `npm i styled-reset`
+- Clean Html  
+  `npm i sanitize-html`
