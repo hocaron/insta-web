@@ -18,19 +18,21 @@ const CommentCaption = styled.span`
 
 function Comment({ author, payload }) {
   const cleanedPayload = sanitizeHtml(
-    payload?.replace(/#[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w]+/g, "<mark>$&</mark>"),
-    { allowedTags: ["mark"] }
+    payload
+      ? payload.replace(/#[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w]+/g, "<mark>$&</mark>")
+      : "",
+    {
+      allowedTags: ["mark"],
+    }
   );
-  console.log(cleanedPayload);
+  console.log("test");
+  console.log(payload?.replace(/#[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w]+/g, "<mark>$&</mark>"));
   return (
     <CommentContainer>
       <FatText>{author}</FatText>
       <CommentCaption
         dangerouslySetInnerHTML={{
-          __html: payload?.replace(
-            /#[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w]+/g,
-            "<mark>$&</mark>"
-          ),
+          __html: cleanedPayload,
         }}
       />
     </CommentContainer>
