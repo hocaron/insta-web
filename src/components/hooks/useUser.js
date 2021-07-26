@@ -6,6 +6,7 @@ import { isLoggedInVar, LogUserOut } from "../../apollo";
 const SEEMYPROFILE_QUERY = gql`
   query seeMyProfile {
     seeMyProfile {
+      id
       username
       avatar
     }
