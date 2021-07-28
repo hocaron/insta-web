@@ -72,7 +72,9 @@ function Header() {
                 <FontAwesomeIcon icon={faCompass} size="2x" />
               </Icon>
               <Icon>
-                <Avatar url={data?.seeMyProfile?.avatar} />
+                <Link to={`/users/${data?.seeMyProfile?.username}`}>
+                  <Avatar url={data?.seeMyProfile?.avatar} />
+                </Link>
               </Icon>
             </IconsContainer>
           ) : (
