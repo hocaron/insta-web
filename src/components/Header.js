@@ -66,7 +66,9 @@ function Header() {
           {isLoggedIn ? (
             <IconsContainer>
               <Icon>
-                <FontAwesomeIcon icon={faHome} size="2x" />
+                <Link to={routes.home}>
+                  <FontAwesomeIcon icon={faHome} size="2x" />
+                </Link>
               </Icon>
               <Icon>
                 <FontAwesomeIcon icon={faCompass} size="2x" />
