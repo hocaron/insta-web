@@ -17,6 +17,7 @@ npm run start
 - [x] Apollo Client
 - [x] Headers
 - [x] Dark Mode
+- [x] Hashtags
 
 ## 📃Insta Web
 
